@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Ninth of June font test</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Metal&family=Source+Sans+3:wght@300&family=Nunito+Sans:wght@400;600;700&family=Instrument+Serif&family=Fraunces:wght@400;600&family=DM+Sans:wght@400;600&family=Amatic+SC:wght@400;700&display=swap">
+    <style>
+        @font-face {
+            font-family: 'sunny_brunchregular';
+            src: url('sunnybrunch-regular-webfont.woff2') format('woff2'),
+                url('sunnybrunch-regular-webfont.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        :root {
+            box-sizing: border-box;
+            padding-top: env(safe-area-inset-top, 0px);
+            padding-bottom: env(safe-area-inset-bottom, 0px);
+            --c-bg: #ece9e2;
+            --c-tx: #16241f;
+            --c-bd: #c9c6bc;
+            --c-pn: #f8f6f1;
+            --c-ac: #9c4527
+        }
+
+        html {
+            scroll-padding-top: env(safe-area-inset-top, 0px)
+        }
+
+        @media (prefers-color-scheme:dark) {
+            :root:not([data-theme="light"]) {
+                --c-bg: #101a17;
+                --c-tx: #e8e4da;
+                --c-bd: #2c3c37;
+                --c-pn: #18251f;
+                --c-ac: #e0906f
+            }
+        }
+
+        :root[data-theme="dark"] {
+            --c-bg: #101a17;
+            --c-tx: #e8e4da;
+            --c-bd: #2c3c37;
+            --c-pn: #18251f;
+            --c-ac: #e0906f
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: inherit
+        }
+
+        body {
+            margin: 0;
+            background: var(--c-bg);
+            color: var(--c-tx);
+            font: 15px/1.4 system-ui, -apple-system, "Segoe UI", sans-serif
+        }
+
+        .bar {
+            background: var(--c-pn);
+            border-bottom: 1px solid var(--c-bd);
+            padding: 14px max(16px, env(safe-area-inset-left)) 14px max(16px, env(safe-area-inset-right));
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 22px;
+            align-items: flex-end
+        }
+
+        .bar h1 {
+            font-size: 16px;
+            margin: 0 8px 0 0;
+            font-weight: 700;
+            flex-basis: 100%
+        }
+
+        .bar label,
+        .grp {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            font-size: 12px;
+            color: inherit
+        }
+
+        select,
+        input[type=range],
+        .file {
+            font: inherit;
+            font-size: 14px
+        }
+
+        select {
+            padding: 6px 8px;
+            border: 1px solid var(--c-bd);
+            border-radius: 6px;
+            background: var(--c-bg);
+            color: var(--c-tx);
+            min-width: 150px
+        }
+
+        .seg {
+            display: flex;
+            border: 1px solid var(--c-bd);
+            border-radius: 8px;
+            overflow: hidden
+        }
+
+        .seg button {
+            font: inherit;
+            font-size: 14px;
+            padding: 7px 12px;
+            border: 0;
+            background: transparent;
+            color: var(--c-tx);
+            cursor: pointer
+        }
+
+        .seg button[aria-pressed=true] {
+            background: var(--c-tx);
+            color: var(--c-bg)
+        }
+
+        .file {
+            border: 1px dashed var(--c-ac);
+            color: var(--c-ac);
+            padding: 6px 10px;
+            border-radius: 6px;
+            cursor: pointer
+        }
+
+        .file input {
+            display: none
+        }
+
+        button:focus-visible,
+        select:focus-visible,
+        input:focus-visible,
+        .file:focus-within {
+            outline: 2px solid var(--c-ac);
+            outline-offset: 2px
+        }
+
+        .note {
+            font-size: 12px;
+            opacity: .85;
+            flex-basis: 100%;
+            margin: 0
+        }
+
+        .note b {
+            font-weight: 600
+        }
+
+        .stage {
+            --bg: #F5F1EB;
+            --tx: #00201B;
+            --pr: #2F4F4F;
+            --ac: #A6492D;
+            --sf: #BCC8CA;
+            --bd: #D3D4CE;
+            --mu: #4A5F5B;
+            --out: #D3D4CE;
+            --hs: 1;
+            --bs: 17px;
+            background: var(--bg);
+            color: var(--tx);
+            font-family: var(--fb);
+            font-size: var(--bs);
+            line-height: 1.6;
+            min-height: 70vh
+        }
+
+        .stage[data-pv=dark] {
+            --bg: #00201B;
+            --tx: #F5F1EB;
+            --pr: #BCC8CA;
+            --ac: #E8946F;
+            --sf: #2F4F4F;
+            --bd: #35564f;
+            --mu: #B4C2C0;
+            --out: #001612
+        }
+
+        .stage[data-pv=surface] {
+            --bg: #BCC8CA;
+            --tx: #00201B;
+            --pr: #2F4F4F;
+            --ac: #8A3A22;
+            --sf: #F5F1EB;
+            --bd: #9FB0AE;
+            --mu: #2F4F4F;
+            --out: #A5B4B6
+        }
+
+        .h {
+            font-family: var(--fh);
+            font-weight: 400;
+            line-height: 1.02;
+            letter-spacing: .01em;
+            margin: 0
+        }
+
+        .stage[data-caps] .h {
+            text-transform: uppercase
+        }
+
+        .a {
+            font-family: var(--fa)
+        }
+
+        .t1 {
+            font-size: calc(clamp(2.8rem, 9vw, 5.6rem)*var(--hs))
+        }
+
+        .t2 {
+            font-size: calc(clamp(1.8rem, 4.5vw, 2.6rem)*var(--hs))
+        }
+
+        .t3 {
+            font-size: calc(1.75rem*var(--hs))
+        }
+
+        .eyebrow {
+            font-family: var(--fa);
+            color: var(--ac);
+            font-size: 1.05em;
+            margin: 0 0 .5em
+        }
+
+        .btn {
+            font-family: var(--fa);
+            font-size: 1.1rem;
+            line-height: 1;
+            text-transform: uppercase;
+            padding: .85em 1.4em;
+            border-radius: 6px;
+            border: 1.5px solid var(--pr);
+            background: var(--pr);
+            color: var(--bg);
+            cursor: pointer
+        }
+
+        .btn.o {
+            background: transparent;
+            color: var(--tx);
+            border-color: var(--tx)
+        }
+
+        .btns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 1.6em
+        }
+
+        .lay {
+            display: none
+        }
+
+        .stage[data-lay=hero] #hero,
+        .stage[data-lay=article] #article,
+        .stage[data-lay=email] #email {
+            display: block
+        }
+
+        .wrap {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 0 max(20px, env(safe-area-inset-left)) 0 max(20px, env(safe-area-inset-right))
+        }
+
+        /* hero */
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px 24px;
+            padding: 22px 0;
+            border-bottom: 1px solid var(--bd)
+        }
+
+        .nav .h {
+            font-size: calc(1.9rem*var(--hs))
+        }
+
+        .nav ul {
+            display: flex;
+            gap: 22px;
+            list-style: none;
+            margin: 0;
+            padding: 0
+        }
+
+        .hero {
+            padding: clamp(48px, 9vw, 110px) 0 clamp(40px, 7vw, 80px);
+            max-width: 760px
+        }
+
+        .hero p.lead {
+            font-size: 1.25em;
+            max-width: 34em;
+            margin: 1.2em 0 0
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 18px;
+            padding-bottom: 70px
+        }
+
+        .card {
+            background: var(--sf);
+            border: 1px solid var(--bd);
+            border-radius: 10px;
+            padding: 22px
+        }
+
+        .card p {
+            margin: .5em 0 0;
+            color: var(--mu)
+        }
+
+        .tag {
+            font-family: var(--fa);
+            display: inline-block;
+            font-size: .95em;
+            color: var(--ac);
+            margin-bottom: .4em
+        }
+
+        /* article */
+        .art {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: clamp(40px, 7vw, 80px) max(20px, env(safe-area-inset-left)) 80px max(20px, env(safe-area-inset-right))
+        }
+
+        .art .dek {
+            font-size: 1.3em;
+            color: var(--mu);
+            margin: .9em 0 0
+        }
+
+        .by {
+            font-family: var(--fa);
+            color: var(--mu);
+            margin: 1.4em 0 2em;
+            padding-bottom: 1.2em;
+            border-bottom: 1px solid var(--bd)
+        }
+
+        .art h2 {
+            margin: 1.8em 0 .5em
+        }
+
+        .art p {
+            margin: 0 0 1.1em
+        }
+
+        .art ul {
+            padding-left: 1.2em;
+            margin: 0 0 1.2em
+        }
+
+        .art li {
+            margin: .3em 0
+        }
+
+        blockquote {
+            font-family: var(--fa);
+            font-size: 1.7em;
+            line-height: 1.3;
+            margin: 1.4em 0;
+            padding-left: 1em;
+            border-left: 3px solid var(--ac)
+        }
+
+        /* email */
+        .mailbg {
+            background: var(--out);
+            padding: 28px 12px
+        }
+
+        .mail {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--bg);
+            border: 1px solid var(--bd)
+        }
+
+        .mail .in {
+            padding: 28px 32px
+        }
+
+        .mail .top {
+            text-align: center;
+            padding: 22px;
+            border-bottom: 1px solid var(--bd)
+        }
+
+        .mail .top .h {
+            font-size: calc(2rem*var(--hs))
+        }
+
+        .mail .t1 {
+            font-size: calc(3.2rem*var(--hs))
+        }
+
+        .mail .t2 {
+            font-size: calc(2rem*var(--hs))
+        }
+
+        .tiles {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 1em
+        }
+
+        .ph {
+            aspect-ratio: 1;
+            background: var(--sf);
+            border-radius: 6px;
+            display: grid;
+            place-items: center;
+            color: var(--mu);
+            font-family: var(--fa)
+        }
+
+        .tiles p {
+            margin: .5em 0 0;
+            font-size: .9em;
+            line-height: 1.35
+        }
+
+        .mail hr {
+            border: 0;
+            border-top: 1px solid var(--bd);
+            margin: 0
+        }
+
+        .mail .ft {
+            background: var(--sf);
+            font-size: .85em;
+            text-align: center;
+            padding: 22px 32px;
+            color: var(--mu)
+        }
+
+        .fbnote {
+            max-width: 600px;
+            margin: 0 auto 12px;
+            font-size: 13px;
+            color: var(--tx);
+            font-family: system-ui, sans-serif
+        }
+
+        @media (max-width:520px) {
+            .tiles {
+                grid-template-columns: 1fr
+            }
+
+            .mail .in {
+                padding: 22px 20px
+            }
+        }
+
+        @media (prefers-reduced-motion:no-preference) {
+            .btn {
+                transition: opacity .15s
+            }
+
+            .btn:hover {
+                opacity: .88
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="bar">
+        <h1>Ninth of June font test</h1>
+        <label>Headings<select id="h"></select></label>
+        <label>Buttons and accents<select id="a"></select></label>
+        <label>Body text<select id="b"></select></label>
+        <div class="grp">Layout<div class="seg" id="lay" role="group" aria-label="Layout"><button type="button"
+                    data-v="hero">Landing hero</button><button type="button" data-v="article">Article</button><button
+                    type="button" data-v="email">Email newsletter</button></div>
+        </div>
+        <div class="grp">Preview colors<div class="seg" id="pv" role="group" aria-label="Preview colors"><button
+                    type="button" data-v="light">Off-white</button><button type="button"
+                    data-v="dark">Dark</button><button type="button" data-v="surface">Silver</button></div>
+        </div>
+        <label>Heading size<input type="range" id="hs" min="70" max="140" value="100"></label>
+        <label>Body size<input type="range" id="bs" min="14" max="22" value="17"></label>
+        <p class="note" id="st"></p>
+        <p class="note" id="fbrow"><label style="flex-direction:row;align-items:center;gap:6px"><input type="checkbox"
+                    id="fb"> Show typical email fallback fonts (what many inboxes display instead of custom
+                fonts)</label></p>
+    </header>
+
+    <main class="stage" id="stage" data-lay="hero" data-pv="light">
+        <!-- LANDING HERO -->
+        <section class="lay" id="hero">
+            <div class="wrap">
+                <nav class="nav"><span class="h">Ninth of June</span>
+                    <ul>
+                        <li>New arrivals</li>
+                        <li>Brands</li>
+                        <li>Events</li>
+                        <li>Hours and location</li>
+                    </ul>
+                </nav>
+                <div class="hero">
+                    <p class="eyebrow">New this week</p>
+                    <h2 class="h t1">Fashion for practical living.</h2>
+                    <p class="lead">Fresh style arrives every week at our shop in Delhi, NY. Come in, look around, and
+                        find something you love.</p>
+                    <div class="btns"><button class="btn" type="button">See what's new</button><button class="btn o"
+                            type="button">Visit the shop</button></div>
+                </div>
+                <div class="cards">
+                    <div class="card"><span class="tag">Just in</span>
+                        <h3 class="h t3">Wool sweaters</h3>
+                        <p>Cozy, layerable, and ready for an upstate October.</p>
+                    </div>
+                    <div class="card"><span class="tag">Always in stock</span>
+                        <h3 class="h t3">Denim and boots</h3>
+                        <p>Jeans under $100, plus pieces worth investing in.</p>
+                    </div>
+                    <div class="card"><span class="tag">Coming soon</span>
+                        <h3 class="h t3">The home shop</h3>
+                        <p>Kitchen, coffee, and cozy things for the house.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ARTICLE -->
+        <section class="lay" id="article">
+            <article class="art">
+                <p class="eyebrow">From the shop</p>
+                <h2 class="h t1">How to layer for an upstate October.</h2>
+                <p class="dek">Mornings are cold, afternoons are not, and nobody wants to carry a coat all day.</p>
+                <div class="by">Ninth of June, October 2026</div>
+                <p>The trick is a few good pieces that work together. Start with something soft against the skin, add a
+                    sweater you could wear on its own, and finish with something that blocks the wind. Take one off when
+                    the sun comes out and you're done.</p>
+                <h3 class="h t2">Start with the sweater</h3>
+                <p>A wool sweater does most of the work. It's warm without being bulky, it looks good with jeans, and it
+                    keeps its shape. If you only buy one new thing this month, make it this.</p>
+                <blockquote>Comfortable, but not lazy. Handsome, but not elitist.</blockquote>
+                <h3 class="h t2">What to bring on a walk through town</h3>
+                <ul>
+                    <li>A sweater you love</li>
+                    <li>Boots that can handle wet leaves</li>
+                    <li>One layer you can tie around your waist</li>
+                </ul>
+                <p>Not sure what suits you? Come in and try a few things on. We're happy to help, or to leave you alone,
+                    whichever you'd like.</p>
+                <div class="btns"><button class="btn" type="button">See what's in the shop</button></div>
+            </article>
+        </section>
+
+        <!-- EMAIL -->
+        <section class="lay" id="email">
+            <div class="mailbg">
+                <p class="fbnote" id="fbmsg" hidden>Showing typical email fallbacks: Georgia for headings and accents,
+                    Arial for body.</p>
+                <div class="mail">
+                    <div class="top"><span class="h">Ninth of June</span></div>
+                    <div class="in">
+                        <p class="eyebrow">New this week</p>
+                        <h2 class="h t1">Something new just landed.</h2>
+                        <p>Hi there, new sweaters, boots, and a few surprises arrived this week at the shop in Delhi.
+                            Come see what's here before it's gone.</p>
+                        <div class="btns"><button class="btn" type="button">See what's new</button></div>
+                    </div>
+                    <hr>
+                    <div class="in">
+                        <h3 class="h t2">Just in</h3>
+                        <div class="tiles">
+                            <div>
+                                <div class="ph">Photo</div>
+                                <p>Wool crew sweater</p>
+                            </div>
+                            <div>
+                                <div class="ph">Photo</div>
+                                <p>Selvedge denim</p>
+                            </div>
+                            <div>
+                                <div class="ph">Photo</div>
+                                <p>Everyday boots</p>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="in">
+                        <p class="eyebrow">This Saturday</p>
+                        <h3 class="h t2">Come by the shop.</h3>
+                        <p>We're open our usual hours. Stop in, browse, and say hello.</p>
+                        <div class="btns"><button class="btn o" type="button">Hours and location</button></div>
+                    </div>
+                    <div class="ft">Ninth of June, Delhi, NY<br>You're getting this because you joined our list.
+                        Unsubscribe any time.</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        var F = {
+            'Sunny Brunch': "'sunny_brunchregular','Amatic SC',cursive",
+            'Metal': "'Metal',Georgia,serif",
+            'Source Sans 3': "'Source Sans 3',system-ui,sans-serif",
+            'Nunito Sans': "'Nunito Sans',system-ui,sans-serif",
+            'Instrument Serif': "'Instrument Serif',Georgia,serif",
+            'Fraunces': "'Fraunces',Georgia,serif",
+            'DM Sans': "'DM Sans',system-ui,sans-serif",
+            'Amatic SC': "'Amatic SC',cursive"
+        };
+        var $ = function (i) { return document.getElementById(i) }, stage = $('stage'), sunny = false;
+        var P = new URLSearchParams(location.search);
+        function fill(id, def) { var s = $(id); Object.keys(F).forEach(function (k) { var o = document.createElement('option'); o.value = k; o.textContent = k; s.appendChild(o) }); var v = P.get(id); s.value = F[v] ? v : def; s.onchange = apply }
+        fill('h', 'Sunny Brunch'); fill('a', 'Metal'); fill('b', 'Source Sans 3');
+        var lay = ['hero', 'article', 'email'].indexOf(P.get('layout')) > -1 ? P.get('layout') : 'hero', pv = 'light';
+        function seg(id, set) { [].forEach.call($(id).children, function (b) { b.onclick = function () { set(b.dataset.v); apply() } }) }
+        seg('lay', function (v) { lay = v }); seg('pv', function (v) { pv = v });
+        ['hs', 'bs', 'fb'].forEach(function (i) { $(i).oninput = apply });
+        function apply() {
+            var fb = $('fb').checked && lay === 'email';
+            stage.style.setProperty('--fh', fb ? 'Georgia,serif' : F[$('h').value]);
+            stage.style.setProperty('--fa', fb ? 'Georgia,serif' : F[$('a').value]);
+            stage.style.setProperty('--fb', fb ? 'Arial,Helvetica,sans-serif' : F[$('b').value]);
+            stage.style.setProperty('--hs', $('hs').value / 100);
+            stage.style.setProperty('--bs', $('bs').value + 'px');
+            stage.dataset.lay = lay; stage.dataset.pv = pv;
+            if (!fb && ['Sunny Brunch', 'Amatic SC'].indexOf($('h').value) > -1) stage.setAttribute('data-caps', ''); else stage.removeAttribute('data-caps');
+            $('fbmsg').hidden = !fb; $('fbrow').style.display = lay === 'email' ? '' : 'none';
+            ['lay', 'pv'].forEach(function (g) { var cur = g === 'lay' ? lay : pv;[].forEach.call($(g).children, function (b) { b.setAttribute('aria-pressed', b.dataset.v === cur) }) });
+        }
+        function status() {
+            $('st').innerHTML = sunny ? '<b>Sunny Brunch:</b> using your real font file.' : '<b>Sunny Brunch:</b> not found on this device, so a similar free font (Amatic SC) is standing in. Install the font and reload, or use the file button above.'
+        }
+        document.fonts.load('16px sunny_brunchregular').then(function () { sunny = document.fonts.check('16px sunny_brunchregular'); status(); apply() });
+        $('ff').onchange = function (e) { var f = e.target.files[0]; if (!f) return; f.arrayBuffer().then(function (buf) { var ff = new FontFace('Sunny Brunch', buf); return ff.load().then(function () { document.fonts.add(ff); sunny = true; status(); apply() }) }).catch(function () { $('st').textContent = 'That file could not be read as a font. Try the .ttf, .otf, or .woff2 file.' }) };
+        status(); apply();
+    </script>
+</body>
+
+</html>
